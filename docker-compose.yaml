@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  postgres_db:
+    container_name: postgresdb
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres_db
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pguser
