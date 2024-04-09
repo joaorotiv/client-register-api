@@ -1,7 +1,7 @@
 <h1 align="center">Client Register Api</h1>
 
 Descrição
-* Api que realiza o cadastro de clientes, e sua respectiva manutenção, como: listagem de clientes, atualização individual e integrada e possível exclusão.
+* Api que realiza o cadastro de clientes e cadastro de seus endereços, e sua respectiva manutenção, como: listagem de clientes e seus endereços, atualização individual e integrada e possível exclusão de clientes e seus endereços.
 
 Dependências
 * Docker - Você pode encontrar facilmente aqui : https://www.docker.com/get-started
@@ -24,6 +24,13 @@ http://localhost:8080/v1/client
 - `Funcionalidade 3 - Atualiza clientes pelo Id`: Atualiza o cadastro completo do cliente de determinado identificador;
 - `Funcionalidade 4 - Atualiza a permissão de compra do cliente`: Atualiza a permissão de compra do cliente de determinado identificador;
 - `Funcionalidade 5 - Deleta clientes pelo Id`: Deleta o cliente através do seu identificador;
+- `Funcionalidade 6 - Cadastro de endereço`: Realiza a criação de endereços para clientes cadastrados;
+- `Funcionalidade 7 - Lista endereço pelo Id`: Lista o endereço cadastrado através de uma busca pelo seu identificador;
+- `Funcionalidade 7a - Lista endereço pelo cep`: Lista os endereços cadastrados em determinado cadastro de cliente através de uma busca pelo seu CEP;
+- `Funcionalidade 7b - Lista todos endereços de cliente`: Lista todos os endereços cadastrados para determinado cliente;
+- `Funcionalidade 8 - Atualiza endereço pelo Id`: Atualiza o endereço completo do cliente de determinado identificador;
+- `Funcionalidade 9 - Atualiza o endereço principal do cliente`: Atualiza o endereço principal do cliente de determinado identificador;
+- `Funcionalidade 10 - Deleta endereço pelo Id`: Deleta o endereço através do seu identificador;
 
   ## ✔️ Técnicas e tecnologias utilizadas
 
