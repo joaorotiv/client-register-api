@@ -52,11 +52,43 @@ class ApplicationExceptionHandler : ResponseEntityExceptionHandler(){
         return ResponseEntity(error, error.status)
     }
 
+    @ExceptionHandler(ZipcodeNotFoundException::class)
+    fun handleZipcodeNotFoundException(
+        exception: ZipcodeNotFoundException,
+    ): ResponseEntity<ApiError> {
+        val error = ApiError("Não possui endereços cadastrados com este CEP.", status = HttpStatus.NOT_FOUND)
+        return ResponseEntity(error, error.status)
+    }
+
+    @ExceptionHandler(AddressMustBeCommercialException::class)
+    fun handleAddressMustBeCommercialException(
+        exception: AddressMustBeCommercialException,
+    ): ResponseEntity<ApiError> {
+        val error = ApiError("Para clientes jurídicos, é necessário informar um endereço comercial.", status = HttpStatus.UNAUTHORIZED)
+        return ResponseEntity(error, error.status)
+    }
+
+    @ExceptionHandler(DeleteFavoriteAddressException::class)
+    fun handleDeleteFavoriteAddressException(
+        exception: DeleteFavoriteAddressException,
+    ): ResponseEntity<ApiError> {
+        val error = ApiError("Você não pode deletar um endereço principal, por favor selecione outro endereço para ser seu principal.", status = HttpStatus.UNAUTHORIZED)
+        return ResponseEntity(error, error.status)
+    }
+
+    @ExceptionHandler(ExceedMaxNumberOfAddresses::class)
+    fun handleMaxNumberOfAddressesException(
+        exception: ExceedMaxNumberOfAddresses,
+    ): ResponseEntity<ApiError> {
+        val error = ApiError("Você só pode cadastrar 3 endereços. Para adicionar um novo endereço é preciso remover um da sua lista de endereços cadastrados", status = HttpStatus.UNAUTHORIZED)
+        return ResponseEntity(error, error.status)
+    }
+
     @ExceptionHandler(NotFoundException::class)
     fun handleNotFoundException(
         exception: NotFoundException
     ): ResponseEntity<ApiError> {
-        val error = ApiError("Identificador informado não corresponde a nenhum cliente. Não existe ou já deletado. Nada foi alterado.", status = HttpStatus.NOT_FOUND)
+        val error = ApiError("Identificador informado não corresponde a nenhum cliente.", status = HttpStatus.NOT_FOUND)
         return ResponseEntity(error, error.status)
     }
 

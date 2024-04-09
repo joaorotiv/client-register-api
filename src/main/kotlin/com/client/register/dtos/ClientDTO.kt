@@ -6,13 +6,20 @@ import java.time.LocalDateTime
 
 data class ClientDTO(
     val clientId: Int? = null,
-    var name: String? = null,
-    var email: String? = null,
-    var clientType: ClientType? = null,
+    var name: String,
+    var email: String,
+    var clientType: ClientType,
     var documentType: ClientDocumentType? = null,
-    var documentNumber: String? = null,
-    var address: String? = null,
+    var documentNumber: String,
+    var addresses: MutableList<AddressDTO>? = null,
     var purchasePermission: Boolean? = null,
+    var pendingRegistration: Boolean? = null,
     val registerDate: LocalDateTime?= null,
     var lastRegisterUpdate: LocalDateTime?= null,
-)
+){
+
+    fun setInitialPermissionsConfig(){
+        purchasePermission = false
+        pendingRegistration = true
+    }
+}

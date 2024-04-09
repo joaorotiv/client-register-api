@@ -5,8 +5,8 @@ CREATE TABLE client(
   client_type VARCHAR(10) CHECK (client_type IN ('FISICO', 'JURIDICO')),
   document_type VARCHAR(4) CHECK (document_type IN ('CPF', 'CNPJ')),
   document_number VARCHAR(18) UNIQUE NOT NULL,
-  address VARCHAR(80) NOT NULL,
-  purchase_permission BOOLEAN NOT NULL,
+  purchase_permission BOOLEAN NOT NULL DEFAULT FALSE,
+  pending_registration BOOLEAN NOT NULL DEFAULT TRUE,
   register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   register_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
