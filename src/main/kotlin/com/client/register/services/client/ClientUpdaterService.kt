@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service
 class ClientUpdaterService (
     private val repository: ClientRepository,
     private val validator: Validator<ClientDTO>,
-    private val registerRepository: ClientApiHelper
+    private val helper: ClientApiHelper
 ): UpdateClientService {
 
     private val log = KotlinLogging.logger {}
@@ -22,7 +22,7 @@ class ClientUpdaterService (
         log.info { "=M ClientUpdaterService.updateById(), stage=init, clientId${clientId}" }
         validator.validate(client)
 
-        val saved = registerRepository.findClientOrThrow(clientId)
+        val saved = helper.findClientOrThrow(clientId)
 
         BeanUtils.copyProperties(client, saved,"registerDate")
 
@@ -33,7 +33,7 @@ class ClientUpdaterService (
     override fun updateClientPermissionById(purchasePermission: Boolean, clientId: Int) {
         log.info { "=M ClientUpdaterService.updateClientPermissionById(), stage=init, clientId${clientId}" }
 
-        val saved = registerRepository.findClientOrThrow(clientId)
+        val saved = helper.findClientOrThrow(clientId)
 
         saved.purchasePermission = purchasePermission
 

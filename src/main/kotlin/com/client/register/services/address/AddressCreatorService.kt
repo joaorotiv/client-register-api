@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service
 class AddressCreatorService(
     private val repository: AddressRepository,
     private val validator: Validator<AddressDTO>,
-    private val apiRepository: ClientApiHelper
+    private val helper: ClientApiHelper
 ): CreateAddressService {
 
     private val log = KotlinLogging.logger {}
@@ -22,13 +22,13 @@ class AddressCreatorService(
     override fun execute(address: AddressDTO, clientId: Int) : AddressDTO {
         log.info { "M=AddressCreatorService.execute, stage=init" }
         validator.validate(address)
-        apiRepository.setAddressType(address, clientId)
+        helper.setAddressType(address, clientId)
 
-        val client = apiRepository.findClientOrThrow(clientId)
+        val client = helper.findClientOrThrow(clientId)
         if (client.maxNumberOfAddresses()) throw ExceedMaxNumberOfAddresses("")
 
         client.ableToPurchase()
-        apiRepository.favoriteNewAddress(address, client)
+        helper.favoriteNewAddress(address, client)
 
         val saved = repository.save(address.toEntity(client))
 
