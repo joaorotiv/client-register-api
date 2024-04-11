@@ -1,6 +1,6 @@
 package com.client.register.services.address
 
-import com.client.register.ApiRepository
+import com.client.register.helper.ClientApiHelper
 import com.client.register.dtos.AddressDTO
 import com.client.register.mappers.*
 import com.client.register.repositories.AddressRepository
@@ -19,7 +19,7 @@ class AddressCreatorServiceTest {
     lateinit var repository: AddressRepository
 
     @Mock
-    lateinit var apiRepository: ApiRepository
+    lateinit var apiRepository: ClientApiHelper
 
     @Mock
     lateinit var validator: Validator<AddressDTO>

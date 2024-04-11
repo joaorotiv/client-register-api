@@ -1,6 +1,6 @@
 package com.client.register.services.address
 
-import com.client.register.ApiRepository
+import com.client.register.helper.ClientApiHelper
 import com.client.register.dtos.AddressDTO
 import com.client.register.exceptions.ExceedMaxNumberOfAddresses
 import com.client.register.mappers.toDTO
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service
 class AddressCreatorService(
     private val repository: AddressRepository,
     private val validator: Validator<AddressDTO>,
-    private val apiRepository: ApiRepository
+    private val apiRepository: ClientApiHelper
 ): CreateAddressService {
 
     private val log = KotlinLogging.logger {}

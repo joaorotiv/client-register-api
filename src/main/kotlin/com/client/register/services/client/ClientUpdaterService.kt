@@ -1,6 +1,6 @@
 package com.client.register.services.client
 
-import com.client.register.ApiRepository
+import com.client.register.helper.ClientApiHelper
 import com.client.register.dtos.ClientDTO
 import com.client.register.mappers.toDTO
 import com.client.register.repositories.ClientRepository
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service
 class ClientUpdaterService (
     private val repository: ClientRepository,
     private val validator: Validator<ClientDTO>,
-    private val registerRepository: ApiRepository
+    private val registerRepository: ClientApiHelper
 ): UpdateClientService {
 
     private val log = KotlinLogging.logger {}

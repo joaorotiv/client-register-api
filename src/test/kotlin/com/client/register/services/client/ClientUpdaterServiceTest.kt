@@ -1,6 +1,6 @@
 package com.client.register.services.client
 
-import com.client.register.ApiRepository
+import com.client.register.helper.ClientApiHelper
 import com.client.register.dtos.ClientDTO
 import com.client.register.mappers.dummyClientDTO
 import com.client.register.mappers.dummyClientEntity
@@ -22,7 +22,7 @@ class ClientUpdaterServiceTest {
     lateinit var repository: ClientRepository
 
     @Mock
-    lateinit var apiRepository: ApiRepository
+    lateinit var apiRepository: ClientApiHelper
 
     @Mock
     lateinit var validator: Validator<ClientDTO>

@@ -1,6 +1,5 @@
 package com.client.register.services.client
 
-import com.client.register.ApiRepository
 import com.client.register.dtos.ClientDTO
 import com.client.register.exceptions.EmptyListException
 import com.client.register.mappers.toDTO

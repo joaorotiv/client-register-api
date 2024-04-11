@@ -1,4 +1,4 @@
-package com.client.register
+package com.client.register.helper
 
 import com.client.register.dtos.AddressDTO
 import com.client.register.entities.ClientEntity
@@ -9,7 +9,7 @@ import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException
 import org.springframework.stereotype.Service
 
 @Service
-class ApiRepository(
+class ClientApiHelper(
     private val clientRepository: ClientRepository
 ) {
 
