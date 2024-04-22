@@ -48,5 +48,4 @@ class UpdateClientResource (
 
         log.info { "=M UpdateClientResource.updateClientPermissionById(), stage=finish, clientId${clientId}"}
     }
-
 }
